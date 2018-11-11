@@ -1,0 +1,106 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        retrieveCustomer:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: Customer
+          output-context:
+            data: Customer
+      options:
+        resources:
+          - business-object: Customer
+            model:
+              $ref: '#/models/Customer'
+            triggers:
+              retrieve: retrieveCustomer
+      type: api-trigger
+  action-interfaces:
+    action-interface-1:
+      type: api-action
+      business-object: Contact
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        RETRIEVEALL: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - retrieve-action:
+              name: Salesforce Retrieve contacts
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-1'
+              filter:
+                where:
+                  Id: '{{$api.CustomerID}}'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                limit: 1
+              allow-truncation: true
+              pagination-type: TOKEN
+              allow-empty-output: false
+          - response:
+              name: response-1
+              reply-maps:
+                - title: Customer successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceRetrievecontacts
+                        $ref: >-
+                          #/node-output/Salesforce Retrieve
+                          contacts/response/payload
+                      - variable: SalesforceRetrievecontactsMetadata
+                        $ref: '#/node-output/Salesforce Retrieve contacts/response'
+                    mappings:
+                      - CustomerID:
+                          template: '{{$SalesforceRetrievecontacts.Id}}'
+                      - Email_Address:
+                          template: '{{$SalesforceRetrievecontacts.Email}}'
+                      - FirstName:
+                          template: '{{$SalesforceRetrievecontacts.FirstName}}'
+                      - LastName:
+                          template: '{{$SalesforceRetrievecontacts.LastName}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceRetrievecontacts
+                      $ref: >-
+                        #/node-output/Salesforce Retrieve
+                        contacts/response/payload
+                    - variable: SalesforceRetrievecontactsMetadata
+                      $ref: '#/node-output/Salesforce Retrieve contacts/response'
+  name: Customer
+models:
+  Customer:
+    name: Customer
+    properties:
+      CustomerID:
+        required: false
+        id: true
+        type: string
+      FirstName:
+        required: false
+        id: false
+        type: string
+      LastName:
+        required: false
+        id: false
+        type: string
+      Email_Address:
+        required: false
+        id: false
+        type: string
+    plural: Customer
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-1'

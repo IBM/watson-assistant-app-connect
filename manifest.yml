@@ -1,0 +1,15 @@
+---
+declared-services:
+  Conversation-o8:
+    label: Conversation-o8
+    plan: free
+applications:
+- name: conv-bot-xxx-appconnect
+  command: npm run server
+  path: .
+  memory: 512M
+  instances: 1
+  services:
+  - Conversation-o8
+  env:
+    NPM_CONFIG_PRODUCTION: false

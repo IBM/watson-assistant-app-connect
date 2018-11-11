@@ -1,0 +1,33 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3010/",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "carbon-components": "^8.16.8",
+    "carbon-components-react": "^5.31.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.1",
+    "react-syntax-highlighter": "^7.0.2",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.2.1"
+  },
+  "scripts": {
+    "start": "cross-env PORT=3001 react-scripts start",
+    "build": "npm install && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
+  },
+  "engines": {
+    "node": ">= 8.11.x",
+    "npm": "> 5.6.x"
+  }
+}

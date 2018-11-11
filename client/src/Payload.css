@@ -1,0 +1,21 @@
+.Payload {
+  height: 100%;
+  width: 100%;
+  min-width: 10rem;
+  line-height: 1.25;
+  font-size: 12px;
+}
+
+.Payload pre {
+  height: calc(100% - 0.5em);
+}
+
+.Payload .header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+div .bx--snippet--code {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

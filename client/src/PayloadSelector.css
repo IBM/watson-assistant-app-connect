@@ -1,0 +1,9 @@
+.PayloadSelector {
+  line-height: 1.25;
+  font-size: 12px;
+}
+
+.PayloadSelector .header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}

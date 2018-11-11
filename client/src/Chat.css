@@ -1,0 +1,109 @@
+.Chat {
+  height: 100%;
+  width: 100%;
+}
+
+.Chat__ChatRecord {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100% - 4em);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.Chat__Item {
+  line-height: 1.5;
+  max-width: 75%;
+  min-width: 25%;
+  margin: 0.5em 0;
+}
+
+.Chat__Item_Initial {
+  color: #B5B5B5;
+}
+
+.Chat__Item_User {
+  margin-left: auto;
+  margin-right: 0.5em;
+  font-size: 1rem;
+  color: #696771;
+  letter-spacing: 0.015rem;
+  line-height: 1.3125rem;
+  background: #E3E9F3;
+  border-radius: 1.25rem;
+  border-bottom-right-radius: 0;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  min-width: 2.5rem;
+}
+
+.Chat__Item_User:before {
+  z-index: -2;
+  bottom: -0.375rem;
+  right: 0;
+  height: 0.375rem;
+  width: 0.5rem;
+  background: #E3E9F3;
+  content: "";
+  position: absolute;
+}
+
+.Chat__Item_User p {
+  margin: 0.3125rem;
+  padding: 0 0.9375rem;
+}
+
+.Chat__Item:after {
+  z-index: -1;
+  bottom: -0.5rem;
+  right: 0;
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #F5F7FA;
+  border-top-right-radius: 1.25rem;
+  content: "";
+  position: absolute;
+}
+
+.Chat__Item_Server {
+
+}
+
+.Chat__Item_Server p {
+  margin: 0.3125rem;
+}
+
+.Chat__Item_Server p:before {
+  content: ' ';
+  border-left: 3px solid #d68adf;
+  border-radius: 20%;
+  margin-right: 0.5em;
+}
+
+@keyframes fetching1 {
+  0%  { color: rgb(21, 41, 53);}
+  50% { color: rgb(221, 241, 253);}
+  100% { color: rgb(21, 41, 53);}
+}
+
+.Chat__Item_Fetching1 {
+  animation-name: fetching1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.Chat__Item_Fetching2 {
+  animation-name: fetching1;
+  animation-duration: 2s;
+  animation-delay: 0.1s;
+  animation-iteration-count: infinite;
+}
+
+.Chat__Item_Fetching3 {
+  animation-name: fetching1;
+  animation-duration: 2s;
+  animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+}
