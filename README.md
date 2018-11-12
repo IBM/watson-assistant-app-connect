@@ -23,7 +23,7 @@ See https://console.bluemix.net/docs/services/conversation/configure-workspace.h
 
 7. The bot will connect to a specific App Connect flow which has been deployed as an API. The App Connect flow takes the customer ID `id` as a parameter at the end of the URL, for example `https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/ca7abf0d8124dc18c0b8cc4f57f20307d3326ae5543d8f71f2ed63c09a14804d/ZJ1eYw/Customer/${id}`. You must deploy your App Connect flow as an API which has this URL format.
 
-To learn about creating an API using App Connect see [Introduction: Creating flows for an API] (https://developer.ibm.com/integration/docs/app-connect/tutorials-for-ibm-app-connect/creating-flows-api/). To learn more about App Connect, see [IBM App Connect Integration Essentials course](https://developer.ibm.com/integration/ibm-app-connect-essentials-course/).
+To learn about creating an API using App Connect see [Introduction: Creating flows for an API](https://developer.ibm.com/integration/docs/app-connect/tutorials-for-ibm-app-connect/creating-flows-api/). To learn more about App Connect, see [IBM App Connect Integration Essentials course](https://developer.ibm.com/integration/ibm-app-connect-essentials-course/).
 
 The sample App Connect flow in `resources/appconnect` does a look up of a Contact in www.salesforce.com using the supplied ID, and exposes this as a REST API in the above format. To use this sample, import the flow into App Connect Lite. In Operations, Edit the flow and change the Application where the contact is retrieved from to use your own connected system. Start the API and in the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on.
 
@@ -175,7 +175,7 @@ To start the server and client in development mode, run the following from the c
 
 `npm start`
 
-The development server will run on port 3010 and the React development server will run on port 3001. Your web browser will open to `http://localhost:3001/` and display the bot UI. In the `Type something` field, enter `look up customer` and press enter. The bot will ask for the customer ID. Enter a known customer ID, for example `0035800001JLVXD`, and press enter. After a wait, the bot will respond with `Customer email is sfc.cloud5@email.com.`.
+The development server will run on port `3010` and the React development server will run on port `3001`. Your web browser will open to `http://localhost:3001/` and display the bot UI. In the `Type something` field, enter `look up customer` and press enter. The bot will ask for the customer ID. Enter a known customer ID, for example `0035800001JLVXD`, and press enter. After a wait, the bot will respond with `Customer email is sfc.cloud5@email.com.`.
 
 For each bot turn, the user payload and Assistant response payload will update on the right, and historic payloads can be viewed using the `Select payload to view` drop down menu. The console output will also show the payload sent to Assistant and the response payload for each turn.
 
