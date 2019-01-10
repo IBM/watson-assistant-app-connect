@@ -6,7 +6,9 @@ The sample App Connect API flow exposes an API which looks up customer details f
 
 # Setup
 
-1. The prereq software is NodeJS v8 and npm v5. Download and install these from https://nodejs.org/.
+1. The prereq software is NodeJS v8 (and npm v5) or later. Download and install these from https://nodejs.org/.
+
+   These instructions were tested successfully with NodeJS 8, and with NodeJS 10.15.0 (and npm 6.4.1).
 
 2. Note you can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only.
 
@@ -49,11 +51,11 @@ The sample App Connect API flow exposes an API which looks up customer details f
 9. If you wish to deploy to IBM Cloud you require the IBM Cloud CLI. See https://console.bluemix.net/docs/cli/index.html for details of how to install the CLI. It is not essential to deploy to IBM Cloud to test the application.
 
 
-## To use a Cloud Function
+## To use a Cloud function
 
-Note you can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only. Therefore if you are using Watson Assistant in US South, create the cloud function in US South. If you are using Watson Assistant in Germany, create the cloud function in Germany.
+Note: You can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only. Therefore if you are using Watson Assistant in US South, you'd create the cloud function in US South. If you are using Watson Assistant in Germany, you'd create the cloud function in Germany.
 
-To run with cloud function, from the IBM Cloud Functions console, create a new cloud action in a new package, with a runtime of NodeJS 8 with the code in `resources/cloud_actions/appconnect.js`. In the example workspace the cloud action name is `InvokeAppConnect` in the package `invoke`.
+To run with a cloud function, from the IBM Cloud Functions console, [create a new cloud action](https://console.bluemix.net/openwhisk/create) in a new package, with a runtime of NodeJS (same version as the prereq install) with the code in `resources/cloud_actions/appconnect.js`. In the example workspace the cloud action name is `InvokeAppConnect` in the package `invoke`.
 
 Note in the code, the action calls the URL in `action.url`, and this URL is hardcoded to a specific App Connect flow which has been deployed as an API. The App Connect flow takes the customer ID `id` as a parameter at the end of the URL, for example `https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/ca7abf0d8124dc18c0b8cc4f57f20307d3326ae5543d8f71f2ed63c09a14804d/ZJ1eYw/Customer/${id}`. You must deploy your App Connect flow as an API and replace this URL with the URL for your App Connect flow.
 
