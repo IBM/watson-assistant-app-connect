@@ -10,18 +10,23 @@ The sample App Connect API flow exposes an API which looks up customer details f
 
 2. Note you can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only.
 
-Watson Assistant in the IBM Cloud Catalog: https://console.bluemix.net/catalog/services/watson-assistant-formerly-conversation
+If you do not have a Watson Assistant service, you can provision one using the free Lite plan.  Watson Assistant in the IBM Cloud Catalog: https://console.bluemix.net/catalog/services/watson-assistant-formerly-conversation
 
 3. Download this repository. You can clone the repository to your local file system using the git command `git clone` as described on the GitHub page. Alternatively you can download a ZIP of the repository as described on the GitHub page and then extract the ZIP to your file system. All console commands should be run from the root directory of the repository.
 
-4. Import the provided workspace JSON file in `resources/workspaces` into Assistant. Record the workspace ID and username and password (or API key) for Assistant.
-See https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-watson-assistant-workspace for details of how to import a workspace from a JSON file. The username and password (or API key) for Assistant are usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard. If you do not have an Assistant service, provision one using the Free plan. Note the region restrictions above for Cloud Functions, ensure you provision Assistant in a region that can use Cloud Functions.
+4. Import the provided skill (workspace) JSON file in `resources/workspaces` into Assistant. 
+
+Note: In Assistant, **skill** is the new term for a workspace.
+
+For details of how to import a skill from a JSON file, see https://console.bluemix.net/docs/services/assistant/create-skill.html#create-skill. 
+
+Record the skill ID, username, and password (or API key) for Assistant. You can view these values on the Skill details page (opened from the Skill tile by selecting "View API Details"). The username and password (or API key) for Assistant are also usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard.
 
 5. Install dependencies by running the following command in a console, from the main source directory where you downloaded the repository:
 
 `npm install`
 
-6. The provided sample workspace can call an App Connect flow to look up a customer record using an ID. There are two options; using Cloud Functions to make the look up call, or using a client action to do the call. See https://console.bluemix.net/docs/services/conversation/dialog-actions.html#dialog-actions for information about making programmatic calls from a dialog node. Decide on which approach you will initially use.
+6. The provided sample skill can call an App Connect flow to look up a customer record using an ID. There are two options; using Cloud Functions to make the look up call, or using a client action to do the call. See https://console.bluemix.net/docs/services/conversation/dialog-actions.html#dialog-actions for information about making programmatic calls from a dialog node. Decide on which approach you will initially use.
 
 7. The bot will connect to a specific App Connect flow which has been deployed as an API. The App Connect flow takes the customer ID `id` as a parameter at the end of the URL, for example `https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/ca7abf0d8124dc18c0b8cc4f57f20307d3326ae5543d8f71f2ed63c09a14804d/ZJ1eYw/Customer/${id}`. You must deploy your App Connect flow as an API which has this URL format.
 
