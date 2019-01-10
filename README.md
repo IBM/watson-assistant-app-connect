@@ -10,33 +10,37 @@ The sample App Connect API flow exposes an API which looks up customer details f
 
 2. Note you can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only.
 
-If you do not have a Watson Assistant service, you can provision one using the free Lite plan.  Watson Assistant in the IBM Cloud Catalog: https://console.bluemix.net/catalog/services/watson-assistant-formerly-conversation
+   If you do not have a Watson Assistant service, you can provision one using the free Lite plan.  Watson Assistant in the IBM Cloud Catalog: https://console.bluemix.net/catalog/services/watson-assistant-formerly-conversation
 
 3. Download this repository. You can clone the repository to your local file system using the git command `git clone` as described on the GitHub page. Alternatively you can download a ZIP of the repository as described on the GitHub page and then extract the ZIP to your file system. All console commands should be run from the root directory of the repository.
 
 4. Import the provided skill (workspace) JSON file in `resources/workspaces` into Assistant. 
 
-Note: In Assistant, **skill** is the new term for a workspace.
+   Note: In Assistant, **skill** is the new term for a workspace.
 
-For details of how to import a skill from a JSON file, see https://console.bluemix.net/docs/services/assistant/create-skill.html#create-skill. 
+   For details of how to import a skill from a JSON file, see https://console.bluemix.net/docs/services/assistant/create-skill.html#create-skill. 
 
-Record the Workspace ID, username, and password (or API key) for Assistant. You can view these values on the Skill details page (opened from the Skill tile by selecting "View API Details"). The username and password (or API key) for Assistant are also usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard.
+   Record the Workspace ID, username, and password (or API key) for Assistant. You can view these values on the Skill details page (opened from the Skill tile by selecting "View API Details"). The username and password (or API key) for Assistant are also usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard.
 
 5. Install dependencies by running the following command in a console, from the main source directory where you downloaded the repository:
 
-`npm install`
+   `npm install`
 
 6. The provided sample skill can call an App Connect flow to look up a customer record using an ID. There are two options; using Cloud Functions to make the look up call, or using a client action to do the call. See https://console.bluemix.net/docs/services/conversation/dialog-actions.html#dialog-actions for information about making programmatic calls from a dialog node. Decide on which approach you will initially use.
 
 7. The bot will connect to a specific App Connect flow which has been deployed as an API. The App Connect flow takes the customer ID `id` as a parameter at the end of the URL, for example `https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/ca7abf0d8124dc18c0b8cc4f57f20307d3326ae5543d8f71f2ed63c09a14804d/ZJ1eYw/Customer/${id}`. You must deploy your App Connect flow as an API which has this URL format.
 
-To learn about creating an API using App Connect see [Introduction: Creating flows for an API](https://developer.ibm.com/integration/docs/app-connect/tutorials-for-ibm-app-connect/creating-flows-api/). To learn more about App Connect, see [IBM App Connect Integration Essentials course](https://developer.ibm.com/integration/ibm-app-connect-essentials-course/).
+   To learn about creating an API using App Connect see [Introduction: Creating flows for an API](https://developer.ibm.com/integration/docs/app-connect/tutorials-for-ibm-app-connect/creating-flows-api/). To learn more about App Connect, see [IBM App Connect Integration Essentials course](https://developer.ibm.com/integration/ibm-app-connect-essentials-course/).
 
-The sample App Connect flow in `resources/appconnect` does a look up of a Contact in www.salesforce.com using the supplied ID, and exposes this as a REST API in the above format. To use this sample, import the flow into App Connect Lite. In Operations, Edit the flow and change the Application where the contact is retrieved from to use your own connected system. Start the API and in the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on.
+   The sample App Connect flow in `resources/appconnect` does a look up of a Contact in www.salesforce.com using the supplied ID, and exposes this as a REST API in the above format. To use this sample, complete the following steps:
+   1. Import the flow into App Connect.
+   2. In Operations, Edit the flow and change the Application where the contact is retrieved from to use your own connected system. 
+   3. Start the API 
+   4. On the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on.
 
-If you want to know more see [this article](https://developer.ibm.com/integration/docs/app-connect/how-to-guides-for-apps/use-ibm-app-connect-salesforce/) for details of how to create a free developer account and connect it to App Connect.
+   If you want to know more see [this article](https://developer.ibm.com/integration/docs/app-connect/how-to-guides-for-apps/use-ibm-app-connect-salesforce/) for details of how to create a free developer account and connect it to App Connect.
 
-Note that an API key is required to use the App Connect flow. Take a note of the value of the App Connect API key.
+   Note that an API key is required to use the App Connect flow. Take a note of the value of the App Connect API key.
 
 8. A shell script and Windows batch file have been provided which set the required environment variables, and can be edited to set the correct values, and then run afterward. The script is named `setEnv.sh` and the batch file is `setEnv.bat`. FOr Linux the script should be run using `. ./setEnv.sh`. Alternatively you can set the environment variables from the command line as described in this readme. Note that if you deploy the application to IBM Cloud, you will have to set the environment variables for the application using Cloud Foundry commands.
 
