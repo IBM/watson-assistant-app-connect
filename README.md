@@ -20,7 +20,7 @@ Note: In Assistant, **skill** is the new term for a workspace.
 
 For details of how to import a skill from a JSON file, see https://console.bluemix.net/docs/services/assistant/create-skill.html#create-skill. 
 
-Record the skill ID, username, and password (or API key) for Assistant. You can view these values on the Skill details page (opened from the Skill tile by selecting "View API Details"). The username and password (or API key) for Assistant are also usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard.
+Record the Workspace ID, username, and password (or API key) for Assistant. You can view these values on the Skill details page (opened from the Skill tile by selecting "View API Details"). The username and password (or API key) for Assistant are also usually listed in the Service credentials section of the Assistant service page in your IBM Cloud dashboard.
 
 5. Install dependencies by running the following command in a console, from the main source directory where you downloaded the repository:
 
