@@ -10,6 +10,8 @@ The sample App Connect API flow exposes an API which looks up customer details f
 
 2. Note you can call a cloud function from a Watson Assistant service in US South or Germany only. Watson Assistant uses the cloud function that is hosted in the same location only.
 
+Watson Assistant in the IBM Cloud Catalog: https://console.bluemix.net/catalog/services/watson-assistant-formerly-conversation
+
 3. Download this repository. You can clone the repository to your local file system using the git command `git clone` as described on the GitHub page. Alternatively you can download a ZIP of the repository as described on the GitHub page and then extract the ZIP to your file system. All console commands should be run from the root directory of the repository.
 
 4. Import the provided workspace JSON file in `resources/workspaces` into Assistant. Record the workspace ID and username and password (or API key) for Assistant.
