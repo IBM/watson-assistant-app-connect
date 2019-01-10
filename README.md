@@ -78,33 +78,37 @@ Once the cloud action is created, record the action name and package.
 
 Edit the bot workspace in Assistant tooling and in the Dialog node `AppConnect / useServerActions` edit the JSON in `Then respond with` on the line `"name": "seager@uk.ibm.com_dev/invoke/InvokeAppConnect",` to indicate the name of your cloud action. The format of this name is `<organization>_<space>/<package>/<action name>`. In the default provided, the organization is `seager@uk.ibm.com`, the space is `dev`, the package is `invoke` and the action name is `InvokeAppConnect`. Assistant will automatically save any changes that you make in the workspace.
 
-Use cloud actions by setting the variable `USE_CLIENT_ACTIONS` in a console. For Unix this is set by the following command:
-`export USE_CLIENT_ACTIONS=false`
+1. Use cloud actions by setting the variable `USE_CLIENT_ACTIONS` in a console.  (You can set the properties in the shell script or Windows batch file that have been provided, as outlined in an earlier step.)
 
-For Windows use the following command:
-`set USE_CLIENT_ACTIONS=false`
+   - For Unix this is set by the following command:
+      `export USE_CLIENT_ACTIONS=false`
 
-Set the cloud action user and password. From the IBM Cloud dashboard Functions section, find the API Key (currently under Getting Started / API Key). The section before the `:` is the username and the section after the `:` is the password.
+   - For Windows use the following command:
+      `set USE_CLIENT_ACTIONS=false`
 
-In Unix:
-`export ACTION_USERNAME=<IBM Cloud Functions username>`
-`export ACTION_PASSWORD=<IBM Cloud Functions password>`
+2. Set the cloud action user and password. From the IBM Cloud dashboard Functions section, find the API Key (currently under Getting Started / API Key). The section before the `:` is the username and the section after the `:` is the password.
 
-In Windows replace `export` with `set`.
+   - In Unix:
+      `export ACTION_USERNAME=<IBM Cloud Functions username>`
+      `export ACTION_PASSWORD=<IBM Cloud Functions password>`
 
-To run server and client in development mode, set the Assistant username, password and workspace ID you recorded earlier. Run the following commands in the console. In Unix:
+   - In Windows replace `export` with `set`.
 
-`export ASSISTANT_USERNAME=<assistant username>`
-`export ASSISTANT_PASSWORD=<assistant password>`
-`export WORKSPACE_ID=<workspace id>`
+3. To run server and client in development mode, set the Assistant username, password and workspace ID you recorded earlier. Run the following commands in the console. 
 
-In Windows replace `export` with `set`.
+   - In Unix:
+      `export ASSISTANT_USERNAME=<assistant username>`
+      `export ASSISTANT_PASSWORD=<assistant password>`
+      `export WORKSPACE_ID=<workspace id>`
 
-Alternatively if you have an API Key for Assistant, run the following command instead of setting the username and password. In Unix:
+   - In Windows replace `export` with `set`.
 
-`export ASSISTANT_IAM_APIKEY=<assistant API key>`
+   Alternatively if you have an API Key for Assistant, run the following command instead of setting the username and password.
+   
+   - In Unix:
+      `export ASSISTANT_IAM_APIKEY=<assistant API key>`
 
-In Windows replace `export` with `set`.
+   - In Windows replace `export` with `set`.
 
 Skip to [Testing the bot](#testing-the-bot) to try the bot.
 
