@@ -40,6 +40,8 @@ The sample App Connect API flow exposes an API which looks up customer details f
    
       Take a note of the value of the App Connect API key; this is required by Assistant to use the App Connect flow. 
 
+   5. (Optional) You can test the API in the API Portal, by using **Try it** and providing the ID of a Salesforce Contact.
+
    If you want to know more about using App Connect with Salesforce, see [this article](https://developer.ibm.com/integration/docs/app-connect/how-to-guides-for-apps/use-ibm-app-connect-salesforce/) for details of how to create a free developer account and connect it to App Connect.
 
 8. A shell script and Windows batch file have been provided which set the required environment variables, and can be edited to set the correct values, and then run afterward. The script is named `setEnv.sh` and the batch file is `setEnv.bat`; both are in the main source directory where you downloaded the repository. For Linux the script should be run using `. ./setEnv.sh`. Alternatively you can set the environment variables from the command line as described in this readme. Note that if you deploy the application to IBM Cloud, you will have to set the environment variables for the application using Cloud Foundry commands.
