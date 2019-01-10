@@ -34,7 +34,7 @@ The sample App Connect API flow exposes an API which looks up customer details f
 
    The sample App Connect flow in `resources/appconnect` does a look up of a Contact in www.salesforce.com using the supplied ID, and exposes this as a REST API in the above format. To use this sample, complete the following steps:
    1. Import the flow into App Connect.
-   2. In Operations, Edit the flow and change the Application where the contact is retrieved from to use your own connected system. 
+   2. In Operations, Edit the flow and change the Salesforce application where the contact is retrieved from to use your own Salesforce account. 
    3. Start the API 
    4. On the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on.
 
