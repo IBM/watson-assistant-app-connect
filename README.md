@@ -36,11 +36,11 @@ The sample App Connect API flow exposes an API which looks up customer details f
    1. Import the flow into App Connect.
    2. In Operations, Edit the flow and change the Salesforce application where the contact is retrieved from to use your own Salesforce account. 
    3. Start the API 
-   4. On the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on; for example `https://service.eu.apiconnect.ibmcloud.com/gws/apigateway/api/ca7abf0d8124dc18c0b8cc4f57f20307d3326ae5543d8f71f2ed63c09a14804d/ZJ1eYw/Customer/${id}`
+   4. On the Manage tab, share the API outside of a Cloud Foundry organization to create an API key, and use the API Portal to discover the URL the API is hosted on (as in the example above).
+   
+      Take a note of the value of the App Connect API key; this is required by Assistant to use the App Connect flow. 
 
-   If you want to know more see [this article](https://developer.ibm.com/integration/docs/app-connect/how-to-guides-for-apps/use-ibm-app-connect-salesforce/) for details of how to create a free developer account and connect it to App Connect.
-
-   Note that an API key is required to use the App Connect flow. Take a note of the value of the App Connect API key.
+   If you want to know more about using App Connect with Salesforce, see [this article](https://developer.ibm.com/integration/docs/app-connect/how-to-guides-for-apps/use-ibm-app-connect-salesforce/) for details of how to create a free developer account and connect it to App Connect.
 
 8. A shell script and Windows batch file have been provided which set the required environment variables, and can be edited to set the correct values, and then run afterward. The script is named `setEnv.sh` and the batch file is `setEnv.bat`. FOr Linux the script should be run using `. ./setEnv.sh`. Alternatively you can set the environment variables from the command line as described in this readme. Note that if you deploy the application to IBM Cloud, you will have to set the environment variables for the application using Cloud Foundry commands.
 
